@@ -80,14 +80,7 @@
     text-transform: uppercase;
   }
 
-  .hero-content {
-    padding: 5rem 2rem 0;
-  }
-
   @media (max-width: 767px) {
-    .hero-content {
-      padding: 6rem 1.25rem 0;
-    }
     .services-grid {
       grid-template-columns: repeat(2, 1fr) !important;
     }

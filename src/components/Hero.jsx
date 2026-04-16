@@ -12,7 +12,7 @@ const fadeUp = {
 
 export default function Hero() {
   return (
-    <section
+    <section className="hero-section"
       style={{
         position: 'relative',
         minHeight: '80vh',
@@ -65,22 +65,24 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
+          className="hero-badge"
           style={{
-            display: 'inline-flex',
+            display: 'flex',
             alignItems: 'center',
+            flexWrap: 'wrap',
             marginBottom: '0.9rem',
-            overflow: 'hidden',
+            maxWidth: '100%',
           }}
         >
-          <span style={{ background: '#D42020', padding: '0.3rem 0.65rem', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'white', whiteSpace: 'nowrap' }}>
+          <span style={{ background: '#D42020', padding: '0.3rem 0.65rem', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'white' }}>
             Commercial • Residential
           </span>
-          <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderLeft: 'none', padding: '0.3rem 0.65rem', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'white', whiteSpace: 'nowrap' }}>
+          <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderLeft: 'none', padding: '0.3rem 0.65rem', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'white' }}>
             24/7 Emergency Assurance
           </span>
         </motion.div>
 
-        {/* Headline — two rows instead of four, tighter */}
+        {/* Headline */}
         <motion.h1
           custom={1}
           variants={fadeUp}
@@ -104,7 +106,7 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}
+          style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center', marginTop: '1.25rem' }}
         >
           <a href="tel:3046856419" className="btn-primary" style={{ fontSize: '0.8rem', padding: '0.75rem 1.5rem' }}>
             <Phone size={14} />
@@ -132,6 +134,29 @@ export default function Hero() {
           Licensed & Insured · Serving Harrison, Monongalia & surrounding WV counties
         </motion.p>
       </div>
+
+      <style>{`
+        .hero-section {
+          align-items: flex-end;
+        }
+        .hero-content {
+          padding: 5rem 2rem 0;
+        }
+        @media (max-width: 767px) {
+          .hero-section {
+            align-items: flex-start;
+            min-height: 100svh;
+            padding-bottom: 3rem;
+          }
+          .hero-content {
+            padding: 5.5rem 1.25rem 0;
+          }
+          .hero-badge span:last-child {
+            border-left: 1px solid rgba(255,255,255,0.1);
+            margin-top: -1px;
+          }
+        }
+      `}</style>
     </section>
   );
 }
