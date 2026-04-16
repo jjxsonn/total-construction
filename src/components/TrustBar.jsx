@@ -22,12 +22,12 @@ export default function TrustBar() {
       }}
     >
       <div
+        className="trust-grid"
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
           padding: '0 2rem',
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
           gap: '0',
         }}
       >
@@ -63,8 +63,9 @@ export default function TrustBar() {
       </div>
 
       <style>{`
+        .trust-grid { grid-template-columns: repeat(4, 1fr); }
         @media (max-width: 640px) {
-          .trust-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .trust-grid { grid-template-columns: repeat(2, 1fr); }
         }
       `}</style>
     </section>

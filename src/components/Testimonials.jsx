@@ -73,13 +73,17 @@ export default function Testimonials() {
         </div>
 
         {/* 3-column tight row — scrolls on mobile */}
+        <div style={{ overflowX: 'auto', marginLeft: '-2rem', marginRight: '-2rem' }}>
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, minmax(260px, 1fr))',
             gap: '1px',
             background: 'rgba(255,255,255,0.05)',
-            overflowX: 'auto',
+            paddingLeft: '2rem',
+            paddingRight: '2rem',
+            minWidth: 'max-content',
+            width: '100%',
           }}
         >
           {reviews.map((review, i) => (
@@ -128,6 +132,7 @@ export default function Testimonials() {
               </div>
             </motion.div>
           ))}
+        </div>
         </div>
       </div>
     </section>
