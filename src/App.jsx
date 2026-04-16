@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import './index.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -7,8 +8,9 @@ import BeforeAfter from './components/BeforeAfter';
 import Testimonials from './components/Testimonials';
 import CTABand from './components/CTABand';
 import Footer from './components/Footer';
+import ServicePage from './pages/ServicePage';
 
-export default function App() {
+function HomePage() {
   return (
     <>
       <Navbar />
@@ -22,5 +24,14 @@ export default function App() {
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/services/:slug" element={<ServicePage />} />
+    </Routes>
   );
 }
