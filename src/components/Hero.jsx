@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Phone, ArrowRight, AlertTriangle } from 'lucide-react';
+import { Phone, ArrowRight } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -61,7 +61,7 @@ export default function Hero() {
           width: '100%',
         }}
       >
-        {/* Emergency badge */}
+        {/* Badge */}
         <motion.div
           custom={0}
           variants={fadeUp}
@@ -70,17 +70,15 @@ export default function Hero() {
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '0.4rem',
-            background: 'rgba(239,68,68,0.12)',
-            border: '1px solid rgba(239,68,68,0.35)',
-            borderRadius: '2px',
-            padding: '0.3rem 0.65rem',
             marginBottom: '0.9rem',
+            overflow: 'hidden',
           }}
         >
-          <AlertTriangle size={11} color="#ef4444" />
-          <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#ef4444' }}>
-            24/7 Emergency Response — Morgantown, WV
+          <span style={{ background: '#D42020', padding: '0.3rem 0.65rem', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'white', whiteSpace: 'nowrap' }}>
+            Commercial • Residential
+          </span>
+          <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderLeft: 'none', padding: '0.3rem 0.65rem', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'white', whiteSpace: 'nowrap' }}>
+            24/7 Emergency Assurance
           </span>
         </motion.div>
 
@@ -101,23 +99,6 @@ export default function Hero() {
           <br />
           <span style={{ color: '#94a3b8' }}>At A Moment's Notice.</span>
         </motion.h1>
-
-        {/* Subheadline */}
-        <motion.p
-          custom={2}
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          style={{
-            color: '#94a3b8',
-            fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
-            lineHeight: 1.6,
-            maxWidth: '460px',
-            margin: '0.75rem 0 1.25rem',
-          }}
-        >
-          Commercial &amp; residential construction, project management, and emergency restoration. Fully insured. One call.
-        </motion.p>
 
         {/* CTAs */}
         <motion.div
