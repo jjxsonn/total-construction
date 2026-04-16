@@ -93,11 +93,13 @@ export default function Hero() {
           className="hero-headline"
           style={{ color: 'white', margin: '0', maxWidth: '680px' }}
         >
-          When Roofs Fail.
+          Perfect Execution
           <br />
-          <span style={{ color: '#D42020' }}>Pipes Burst.</span>
+          <span style={{ color: '#D42020' }}>In Every Project.</span>
           <br />
-          <span style={{ color: '#94a3b8' }}>Water Destroys.</span>
+          <span style={{ color: '#94a3b8' }}>Equipped For Anything</span>
+          <br />
+          <span style={{ color: '#94a3b8' }}>At A Moment's Notice.</span>
         </motion.h1>
 
         {/* Subheadline */}
