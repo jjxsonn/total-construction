@@ -3,11 +3,11 @@ import { Droplets, HardHat, Wrench, Hammer, FileCheck, Flame } from 'lucide-reac
 
 const services = [
   { icon: Droplets, title: 'Water Damage', desc: 'Extract, dry, remediate — before mold sets in.', tag: 'Emergency', accent: '#ef4444' },
-  { icon: HardHat, title: 'Roofing', desc: 'Storm damage to full tear-offs. Insurance handled.', tag: 'Full Service', accent: '#fbbf24' },
+  { icon: HardHat, title: 'Roofing', desc: 'Storm damage to full tear-offs. Insurance handled.', tag: 'Full Service', accent: '#D42020' },
   { icon: Wrench, title: 'Plumbing', desc: 'Emergency pipe stops to full re-pipes. Root cause fixed.', tag: 'Emergency', accent: '#ef4444' },
-  { icon: Hammer, title: 'Structural Repairs', desc: 'Floors, framing, foundations — code-compliant.', tag: 'Restoration', accent: '#fbbf24' },
-  { icon: FileCheck, title: 'Insurance Claims', desc: 'We work with adjusters directly. Every dollar covered.', tag: 'Included', accent: '#fbbf24' },
-  { icon: Flame, title: 'Demo & Site Prep', desc: 'Clean demolition and debris removal before rebuild.', tag: 'Full Service', accent: '#fbbf24' },
+  { icon: Hammer, title: 'Structural Repairs', desc: 'Floors, framing, foundations — code-compliant.', tag: 'Restoration', accent: '#D42020' },
+  { icon: FileCheck, title: 'Insurance Claims', desc: 'We work with adjusters directly. Every dollar covered.', tag: 'Included', accent: '#D42020' },
+  { icon: Flame, title: 'Demo & Site Prep', desc: 'Clean demolition and debris removal before rebuild.', tag: 'Full Service', accent: '#D42020' },
 ];
 
 export default function ServicesBento() {
@@ -27,7 +27,7 @@ export default function ServicesBento() {
           <p className="label-text" style={{ marginBottom: '0.4rem' }}>What We Do</p>
           <h2 className="section-heading" style={{ color: 'white' }}>
             Every Trade.{' '}
-            <span style={{ color: '#fbbf24' }}>One Crew.</span>
+            <span style={{ color: '#D42020' }}>One Crew.</span>
           </h2>
           <p style={{ color: '#94a3b8', fontSize: '0.85rem', lineHeight: 1.6, marginTop: '0.4rem', maxWidth: '480px' }}>
             No sub-contractor relay races. The people on your job own it start to finish.
@@ -79,7 +79,7 @@ export default function ServicesBento() {
                     {svc.tag}
                   </div>
                 )}
-                <Icon size={20} color="#fbbf24" strokeWidth={1.5} style={{ marginBottom: '0.75rem' }} />
+                <Icon size={20} color="#D42020" strokeWidth={1.5} style={{ marginBottom: '0.75rem' }} />
                 <h3 style={{
                   fontSize: '0.85rem',
                   fontWeight: 800,

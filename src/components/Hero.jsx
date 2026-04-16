@@ -95,7 +95,7 @@ export default function Hero() {
         >
           When Roofs Fail.
           <br />
-          <span style={{ color: '#fbbf24' }}>Pipes Burst.</span>
+          <span style={{ color: '#D42020' }}>Pipes Burst.</span>
           <br />
           <span style={{ color: '#94a3b8' }}>Water Destroys.</span>
         </motion.h1>
@@ -114,7 +114,7 @@ export default function Hero() {
             margin: '0.75rem 0 1.25rem',
           }}
         >
-          Total Construction shows up fast, fixes it right, and handles your insurance. One call stops the damage.
+          Commercial &amp; residential construction, project management, and emergency restoration. Fully insured. One call.
         </motion.p>
 
         {/* CTAs */}
@@ -125,9 +125,9 @@ export default function Hero() {
           animate="show"
           style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}
         >
-          <a href="tel:3045550182" className="btn-primary" style={{ fontSize: '0.8rem', padding: '0.75rem 1.5rem' }}>
+          <a href="tel:3046856419" className="btn-primary" style={{ fontSize: '0.8rem', padding: '0.75rem 1.5rem' }}>
             <Phone size={14} />
-            Call Now — It's Free
+            304.685.6419
           </a>
           <a href="#services" className="btn-outline" style={{ fontSize: '0.8rem', padding: '0.75rem 1.5rem' }}>
             Our Services

@@ -13,8 +13,8 @@ export default function TrustBar() {
     <section
       style={{
         background: '#0f172a',
-        borderTop: '1px solid rgba(251,191,36,0.25)',
-        borderBottom: '1px solid rgba(251,191,36,0.12)',
+        borderTop: '1px solid rgba(212,32,32,0.25)',
+        borderBottom: '1px solid rgba(212,32,32,0.12)',
         position: 'relative',
         zIndex: 20,
         marginTop: '-3rem',
@@ -48,7 +48,7 @@ export default function TrustBar() {
                 borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
               }}
             >
-              <Icon size={18} color="#fbbf24" strokeWidth={1.5} />
+              <Icon size={18} color="#D42020" strokeWidth={1.5} />
               <div>
                 <div style={{ fontSize: '1.25rem', fontWeight: 900, letterSpacing: '-0.03em', color: 'white', lineHeight: 1 }}>
                   {stat.value}

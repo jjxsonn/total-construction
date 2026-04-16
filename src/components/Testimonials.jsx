@@ -92,7 +92,7 @@ export default function Testimonials() {
             >
               <Quote
                 size={32}
-                color="rgba(251,191,36,0.1)"
+                color="rgba(212,32,32,0.1)"
                 style={{ position: 'absolute', top: '1.5rem', right: '1.5rem' }}
               />
               <StarRow count={review.stars} />

@@ -9,7 +9,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#060c17', borderTop: '1px solid rgba(251,191,36,0.15)', padding: '4rem 0 2rem' }}>
+    <footer style={{ background: '#060c17', borderTop: '1px solid rgba(212,32,32,0.15)', padding: '4rem 0 2rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
         <div
           style={{
@@ -26,22 +26,22 @@ export default function Footer() {
               <div style={{ fontSize: '1.4rem', fontWeight: 900, letterSpacing: '-0.02em', color: 'white', textTransform: 'uppercase', lineHeight: 1 }}>
                 Total
               </div>
-              <div style={{ fontSize: '1.4rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#fbbf24', textTransform: 'uppercase', lineHeight: 1 }}>
+              <div style={{ fontSize: '1.4rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#D42020', textTransform: 'uppercase', lineHeight: 1 }}>
                 Construction
               </div>
             </div>
             <p style={{ color: '#475569', fontSize: '0.85rem', lineHeight: 1.7, maxWidth: '240px' }}>
-              Wide-ranging contractor servicing water-damaged properties, roofing, plumbing, and more throughout WV.
+              Commercial &amp; residential construction, project management, and emergency restoration throughout WV.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.25rem' }}>
               <a href="#" style={{ width: '34px', height: '34px', background: 'rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', transition: 'background 0.15s' }}
-                onMouseEnter={e => e.currentTarget.style.background = 'rgba(251,191,36,0.15)'}
+                onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,32,32,0.15)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.07)'}
               >
                 <Share2 size={15} />
               </a>
               <a href="#" style={{ width: '34px', height: '34px', background: 'rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', transition: 'background 0.15s' }}
-                onMouseEnter={e => e.currentTarget.style.background = 'rgba(251,191,36,0.15)'}
+                onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,32,32,0.15)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.07)'}
               >
                 <Camera size={15} />
@@ -58,7 +58,7 @@ export default function Footer() {
                   key={link.href}
                   href={link.href}
                   style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.875rem', fontWeight: 500, transition: 'color 0.15s' }}
-                  onMouseEnter={e => e.target.style.color = '#fbbf24'}
+                  onMouseEnter={e => e.target.style.color = '#D42020'}
                   onMouseLeave={e => e.target.style.color = '#94a3b8'}
                 >
                   {link.label}
@@ -72,18 +72,18 @@ export default function Footer() {
             <h4 className="label-text" style={{ marginBottom: '1.25rem' }}>Contact</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <a
-                href="tel:3045550182"
+                href="tel:3046856419"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#94a3b8', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#fbbf24'}
+                onMouseEnter={e => e.currentTarget.style.color = '#D42020'}
                 onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}
               >
                 <Phone size={14} />
-                (304) 555-0182
+                304.685.6419
               </a>
               <a
                 href="mailto:info@totalconstructionwv.com"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#94a3b8', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#fbbf24'}
+                onMouseEnter={e => e.currentTarget.style.color = '#D42020'}
                 onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}
               >
                 <Mail size={14} />
@@ -108,7 +108,7 @@ export default function Footer() {
                 'Insurance Claims Specialist',
               ].map((item) => (
                 <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#475569', fontSize: '0.8rem' }}>
-                  <div style={{ width: '4px', height: '4px', background: '#fbbf24', flexShrink: 0 }} />
+                  <div style={{ width: '4px', height: '4px', background: '#D42020', flexShrink: 0 }} />
                   {item}
                 </div>
               ))}

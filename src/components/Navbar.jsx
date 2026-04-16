@@ -30,7 +30,7 @@ export default function Navbar() {
         transition: 'background 0.3s ease, backdrop-filter 0.3s ease',
         background: scrolled ? 'rgba(10,15,26,0.95)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(251,191,36,0.15)' : '1px solid transparent',
+        borderBottom: scrolled ? '1px solid rgba(212,32,32,0.15)' : '1px solid transparent',
       }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
@@ -40,7 +40,7 @@ export default function Navbar() {
             <span style={{ fontSize: '1.25rem', fontWeight: 900, letterSpacing: '-0.02em', color: 'white', textTransform: 'uppercase' }}>
               Total
             </span>
-            <span style={{ fontSize: '1.25rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#fbbf24', textTransform: 'uppercase' }}>
+            <span style={{ fontSize: '1.25rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#D42020', textTransform: 'uppercase' }}>
               Construction
             </span>
           </a>
@@ -67,12 +67,12 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="tel:3045550182"
+              href="tel:3046856419"
               className="btn-primary"
               style={{ padding: '0.6rem 1.25rem', fontSize: '0.75rem' }}
             >
               <Phone size={14} />
-              (304) 555-0182
+              304.685.6419
             </a>
           </nav>
 
@@ -97,7 +97,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             style={{
               background: '#0f172a',
-              borderTop: '1px solid rgba(251,191,36,0.2)',
+              borderTop: '1px solid rgba(212,32,32,0.2)',
               overflow: 'hidden',
             }}
           >
@@ -119,8 +119,8 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a href="tel:3045550182" className="btn-primary" style={{ textAlign: 'center', justifyContent: 'center' }}>
-                <Phone size={14} /> (304) 555-0182
+              <a href="tel:3046856419" className="btn-primary" style={{ textAlign: 'center', justifyContent: 'center' }}>
+                <Phone size={14} /> 304.685.6419
               </a>
             </div>
           </motion.div>

@@ -52,8 +52,8 @@ function Slider({ before, after }) {
         <img src={before} alt="Before" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} draggable={false} />
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.3)' }} />
       </div>
-      <div style={{ position: 'absolute', top: 0, bottom: 0, left: `${position}%`, width: '2px', background: '#fbbf24', transform: 'translateX(-50%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', top: '50%', left: `${position}%`, transform: 'translate(-50%, -50%)', width: '38px', height: '38px', background: '#fbbf24', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', boxShadow: '0 0 0 3px rgba(251,191,36,0.2)' }}>
+      <div style={{ position: 'absolute', top: 0, bottom: 0, left: `${position}%`, width: '2px', background: '#D42020', transform: 'translateX(-50%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '50%', left: `${position}%`, transform: 'translate(-50%, -50%)', width: '38px', height: '38px', background: '#D42020', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', boxShadow: '0 0 0 3px rgba(251,191,36,0.2)' }}>
         <MoveHorizontal size={16} color="#0a0f1a" strokeWidth={2.5} />
       </div>
       <div style={{ position: 'absolute', top: '0.75rem', left: '0.75rem', pointerEvents: 'none' }}>
@@ -83,7 +83,7 @@ export default function BeforeAfter() {
             <span className="amber-rule" />
             <p className="label-text" style={{ marginBottom: '0.3rem' }}>Real Projects</p>
             <h2 className="section-heading" style={{ color: 'white' }}>
-              The Proof Is In <span style={{ color: '#fbbf24' }}>The Work.</span>
+              The Proof Is In <span style={{ color: '#D42020' }}>The Work.</span>
             </h2>
           </motion.div>
 
@@ -101,7 +101,7 @@ export default function BeforeAfter() {
                   textTransform: 'uppercase',
                   border: 'none',
                   cursor: 'pointer',
-                  background: active === i ? '#fbbf24' : 'rgba(255,255,255,0.07)',
+                  background: active === i ? '#D42020' : 'rgba(255,255,255,0.07)',
                   color: active === i ? '#0a0f1a' : '#64748b',
                   transition: 'background 0.15s, color 0.15s',
                 }}

@@ -5,18 +5,18 @@ export default function CTABand() {
   return (
     <section
       style={{
-        background: '#fbbf24',
+        background: '#D42020',
         padding: '2.5rem 0',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Texture overlay */}
+      {/* Diagonal texture */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0, rgba(0,0,0,0.03) 1px, transparent 0, transparent 50%)',
+          backgroundImage: 'repeating-linear-gradient(45deg, rgba(0,0,0,0.06) 0, rgba(0,0,0,0.06) 1px, transparent 0, transparent 50%)',
           backgroundSize: '12px 12px',
         }}
       />
@@ -42,7 +42,7 @@ export default function CTABand() {
               fontWeight: 700,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: 'rgba(10,15,26,0.6)',
+              color: 'rgba(255,255,255,0.65)',
               marginBottom: '0.5rem',
             }}>
               Don't Wait — Damage Gets Worse by the Hour
@@ -54,7 +54,7 @@ export default function CTABand() {
                 letterSpacing: '-0.04em',
                 lineHeight: 1,
                 textTransform: 'uppercase',
-                color: '#0a0f1a',
+                color: 'white',
                 margin: 0,
               }}
             >
@@ -70,13 +70,13 @@ export default function CTABand() {
             style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'flex-start' }}
           >
             <a
-              href="tel:3045550182"
+              href="tel:3046856419"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.75rem',
                 background: '#0a0f1a',
-                color: '#fbbf24',
+                color: 'white',
                 fontWeight: 800,
                 fontSize: '1.5rem',
                 letterSpacing: '-0.02em',
@@ -89,7 +89,7 @@ export default function CTABand() {
               onMouseLeave={e => e.currentTarget.style.background = '#0a0f1a'}
             >
               <Phone size={22} />
-              (304) 555-0182
+              304.685.6419
             </a>
             <a
               href="#services"
@@ -97,17 +97,16 @@ export default function CTABand() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.5rem',
-                color: '#0a0f1a',
+                color: 'rgba(255,255,255,0.75)',
                 fontWeight: 700,
                 fontSize: '0.8rem',
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 textDecoration: 'none',
-                opacity: 0.7,
-                transition: 'opacity 0.15s',
+                transition: 'color 0.15s',
               }}
-              onMouseEnter={e => e.currentTarget.style.opacity = '1'}
-              onMouseLeave={e => e.currentTarget.style.opacity = '0.7'}
+              onMouseEnter={e => e.currentTarget.style.color = 'white'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.75)'}
             >
               Or browse services <ArrowRight size={14} />
             </a>

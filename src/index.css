@@ -8,7 +8,7 @@
   --color-slate-600: #475569;
   --color-slate-400: #94a3b8;
   --color-slate-200: #e2e8f0;
-  --color-amber-400: #fbbf24;
+  --color-amber-400: #D42020;
   --color-amber-500: #f59e0b;
   --color-amber-600: #d97706;
   --color-red-500: #ef4444;
@@ -38,7 +38,7 @@
   }
 
   ::selection {
-    background-color: #fbbf24;
+    background-color: #D42020;
     color: #0a0f1a;
   }
 
@@ -53,7 +53,7 @@
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #fbbf24;
+    color: #D42020;
   }
 
   .section-heading {
@@ -68,7 +68,7 @@
     display: block;
     width: 2.5rem;
     height: 3px;
-    background-color: #fbbf24;
+    background-color: #D42020;
     margin-bottom: 0.5rem;
   }
 
@@ -84,8 +84,8 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: #fbbf24;
-    color: #0a0f1a;
+    background-color: #D42020;
+    color: white;
     font-weight: 800;
     font-size: 0.85rem;
     letter-spacing: 0.1em;
@@ -98,7 +98,7 @@
   }
 
   .btn-primary:hover {
-    background-color: #f59e0b;
+    background-color: #b71818;
   }
 
   .btn-outline {
