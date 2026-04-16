@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronRight, CheckCircle } from 'lucide-react';
-import { services, CATEGORIES } from '../data/services';
+import { ChevronRight, CheckCircle, ArrowRight } from 'lucide-react';
+import { categories, GROUPS } from '../data/categories';
 
-const restoration = services.filter(s => s.category === CATEGORIES.RESTORATION);
-const trades = services.filter(s => s.category === CATEGORIES.TRADES);
+const restoration = categories.filter(c => c.group === GROUPS.RESTORATION);
+const trades = categories.filter(c => c.group === GROUPS.TRADES);
 
-function ServiceCard({ service }) {
+function ServiceCard({ cat }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -19,14 +19,14 @@ function ServiceCard({ service }) {
         border: '1px solid rgba(255,255,255,0.06)',
         borderLeft: `3px solid ${hovered ? '#D42020' : 'rgba(212,32,32,0.3)'}`,
         padding: '1.5rem',
-        cursor: 'pointer',
+        cursor: 'default',
         transition: 'background 0.2s ease, border-left-color 0.2s ease',
         display: 'flex',
         flexDirection: 'column',
         gap: '0.75rem',
       }}
     >
-      {/* Header row */}
+      {/* Header */}
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
         <div style={{ flex: 1 }}>
           <div style={{ marginBottom: '0.4rem' }}>
@@ -41,11 +41,11 @@ function ServiceCard({ service }) {
               padding: '0.15rem 0.45rem',
               whiteSpace: 'nowrap',
             }}>
-              {service.tag}
+              {cat.tag}
             </span>
           </div>
           <h3 style={{ color: 'white', fontWeight: 800, fontSize: '0.95rem', margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
-            {service.title}
+            {cat.title}
           </h3>
         </div>
         <motion.div
@@ -59,7 +59,7 @@ function ServiceCard({ service }) {
 
       {/* Short desc */}
       <p style={{ color: '#64748b', fontSize: '0.82rem', lineHeight: 1.6, margin: 0 }}>
-        {service.short}
+        {cat.short}
       </p>
 
       {/* Hover expand */}
@@ -73,39 +73,50 @@ function ServiceCard({ service }) {
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
             style={{ overflow: 'hidden' }}
           >
-            <div style={{ paddingTop: '0.75rem', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              {service.included.slice(0, 4).map((item) => (
+            {/* Sub-services list */}
+            <div style={{ paddingTop: '0.75rem', borderTop: '1px solid rgba(255,255,255,0.05)', marginBottom: '0.75rem' }}>
+              <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#475569', marginBottom: '0.5rem' }}>
+                Includes
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                {cat.subServices.map((sub) => (
+                  <div key={sub} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <div style={{ width: '3px', height: '3px', background: '#D42020', flexShrink: 0, borderRadius: '50%' }} />
+                    <span style={{ color: '#94a3b8', fontSize: '0.8rem' }}>{sub}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Included checklist */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+              {cat.included.slice(0, 3).map((item) => (
                 <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                  <CheckCircle size={12} color="#D42020" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span style={{ color: '#94a3b8', fontSize: '0.78rem', lineHeight: 1.4 }}>{item}</span>
+                  <CheckCircle size={11} color="#D42020" style={{ marginTop: '2px', flexShrink: 0 }} />
+                  <span style={{ color: '#64748b', fontSize: '0.75rem', lineHeight: 1.4 }}>{item}</span>
                 </div>
               ))}
-              {service.included.length > 4 && (
-                <div style={{ color: '#475569', fontSize: '0.72rem', paddingLeft: '1.25rem' }}>
-                  +{service.included.length - 4} more included
-                </div>
-              )}
             </div>
 
             <Link
-              to={`/services/${service.slug}`}
+              to={`/services/${cat.slug}`}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.4rem',
                 color: '#D42020',
                 textDecoration: 'none',
-                fontSize: '0.75rem',
+                fontSize: '0.72rem',
                 fontWeight: 700,
-                letterSpacing: '0.08em',
+                letterSpacing: '0.1em',
                 textTransform: 'uppercase',
-                marginTop: '1rem',
+                marginTop: '0.75rem',
               }}
               onMouseEnter={e => e.currentTarget.style.color = '#ff3333'}
               onMouseLeave={e => e.currentTarget.style.color = '#D42020'}
             >
               Full Details
-              <ChevronRight size={13} />
+              <ArrowRight size={12} />
             </Link>
           </motion.div>
         )}
@@ -138,37 +149,35 @@ export default function ServicesBento() {
         </motion.div>
 
         {/* ── RESTORATION ── */}
-        <div style={{ marginBottom: '3.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+        <div style={{ marginBottom: '3rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
             <div style={{ width: '3px', height: '1.4rem', background: '#D42020', flexShrink: 0 }} />
-            <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D42020', whiteSpace: 'nowrap' }}>
+            <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D42020', whiteSpace: 'nowrap' }}>
               Restoration &amp; Mitigation
             </span>
             <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-            <span style={{ color: '#334155', fontSize: '0.7rem', fontWeight: 700, whiteSpace: 'nowrap' }}>{restoration.length} Services</span>
           </div>
 
           <div className="services-grid">
-            {restoration.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
+            {restoration.map((cat) => (
+              <ServiceCard key={cat.slug} cat={cat} />
             ))}
           </div>
         </div>
 
         {/* ── TRADES ── */}
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
             <div style={{ width: '3px', height: '1.4rem', background: '#D42020', flexShrink: 0 }} />
-            <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D42020', whiteSpace: 'nowrap' }}>
+            <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D42020', whiteSpace: 'nowrap' }}>
               Construction Trades
             </span>
             <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-            <span style={{ color: '#334155', fontSize: '0.7rem', fontWeight: 700, whiteSpace: 'nowrap' }}>{trades.length} Services</span>
           </div>
 
           <div className="services-grid">
-            {trades.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
+            {trades.map((cat) => (
+              <ServiceCard key={cat.slug} cat={cat} />
             ))}
           </div>
         </div>

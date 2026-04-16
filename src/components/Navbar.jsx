@@ -1,23 +1,45 @@
 import { useState, useEffect } from 'react';
 import { Phone, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#process' },
-  { label: 'Projects', href: '#before-after' },
-  { label: 'Reviews', href: '#testimonials' },
+  { label: 'Services', href: 'services' },
+  { label: 'Process', href: 'process' },
+  { label: 'Projects', href: 'before-after' },
+  { label: 'Reviews', href: 'testimonials' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function handleNavClick(e, sectionId) {
+    e.preventDefault();
+    setMenuOpen(false);
+    if (location.pathname === '/') {
+      scrollToSection(sectionId);
+    } else {
+      navigate('/');
+      // Wait for home page to mount, then scroll
+      setTimeout(() => scrollToSection(sectionId), 120);
+    }
+  }
 
   return (
     <header
@@ -36,7 +58,11 @@ export default function Navbar() {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
           {/* Logo */}
-          <a href="#" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1, gap: '1px' }}>
+          <a
+            href="#"
+            onClick={e => { e.preventDefault(); navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1, gap: '1px' }}
+          >
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <span style={{ fontSize: '1.5rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#D42020', fontFamily: 'inherit', textTransform: 'uppercase', lineHeight: 1 }}>T</span>
               <span style={{ fontSize: '1.25rem', lineHeight: 1, display: 'inline-block', margin: '0 -1px' }}>😎</span>
@@ -52,7 +78,8 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={`#${link.href}`}
+                onClick={(e) => handleNavClick(e, link.href)}
                 style={{
                   color: '#94a3b8',
                   textDecoration: 'none',
@@ -107,8 +134,8 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <a
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
+                  href={`#${link.href}`}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   style={{
                     color: 'white',
                     textDecoration: 'none',

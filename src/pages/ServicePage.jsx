@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Phone, ArrowLeft, CheckCircle, Wrench, ChevronRight } from 'lucide-react';
+import { Phone, ArrowLeft, CheckCircle, Wrench } from 'lucide-react';
+import { getCategoryBySlug } from '../data/categories';
 import { getServiceBySlug } from '../data/services';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -17,9 +18,10 @@ const fadeUp = {
 
 export default function ServicePage() {
   const { slug } = useParams();
-  const service = getServiceBySlug(slug);
+  const data = getCategoryBySlug(slug) || getServiceBySlug(slug);
+  const isCategory = !!getCategoryBySlug(slug);
 
-  if (!service) {
+  if (!data) {
     return (
       <>
         <Navbar />
@@ -54,7 +56,7 @@ export default function ServicePage() {
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: `url('${service.heroImage}')`,
+            backgroundImage: `url('${data.heroImage}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -67,7 +69,7 @@ export default function ServicePage() {
           <motion.div variants={fadeUp} custom={0} initial="hidden" animate="show" style={{ marginBottom: '1.25rem' }}>
             <Link
               to="/"
-              style={{ color: '#475569', textDecoration: 'none', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', transition: 'color 0.15s' }}
+              style={{ color: '#475569', textDecoration: 'none', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', transition: 'color 0.15s' }}
               onMouseEnter={e => e.currentTarget.style.color = '#94a3b8'}
               onMouseLeave={e => e.currentTarget.style.color = '#475569'}
             >
@@ -89,7 +91,7 @@ export default function ServicePage() {
               textTransform: 'uppercase',
               padding: '0.25rem 0.6rem',
             }}>
-              {service.tag}
+              {data.tag}
             </span>
           </motion.div>
 
@@ -101,7 +103,7 @@ export default function ServicePage() {
             animate="show"
             style={{ color: 'white', margin: '0 0 1rem', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.1, maxWidth: '700px' }}
           >
-            {service.title}
+            {data.title}
           </motion.h1>
 
           {/* Long description */}
@@ -112,11 +114,39 @@ export default function ServicePage() {
             animate="show"
             style={{ color: '#94a3b8', fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', lineHeight: 1.7, maxWidth: '560px', margin: '0 0 2rem' }}
           >
-            {service.long}
+            {data.long}
           </motion.p>
 
+          {/* Sub-services pill list (categories only) */}
+          {isCategory && data.subServices && (
+            <motion.div
+              variants={fadeUp}
+              custom={3.5}
+              initial="hidden"
+              animate="show"
+              style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.75rem' }}
+            >
+              {data.subServices.map(sub => (
+                <span
+                  key={sub}
+                  style={{
+                    fontSize: '0.7rem',
+                    fontWeight: 600,
+                    color: '#64748b',
+                    background: 'rgba(255,255,255,0.05)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    padding: '0.25rem 0.6rem',
+                    letterSpacing: '0.04em',
+                  }}
+                >
+                  {sub}
+                </span>
+              ))}
+            </motion.div>
+          )}
+
           {/* CTA */}
-          <motion.div variants={fadeUp} custom={4} initial="hidden" animate="show" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <motion.div variants={fadeUp} custom={4} initial="hidden" animate="show">
             <a href="tel:3046856419" className="btn-primary" style={{ fontSize: '0.8rem', padding: '0.75rem 1.5rem' }}>
               <Phone size={14} />
               Call Now — 304.685.6419
@@ -143,7 +173,7 @@ export default function ServicePage() {
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
-            {service.methods.map((method, i) => (
+            {data.methods.map((method, i) => (
               <motion.div
                 key={method.step}
                 variants={fadeUp}
@@ -189,7 +219,7 @@ export default function ServicePage() {
                 Every Job, Every Time
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {service.included.map((item) => (
+                {data.included.map((item) => (
                   <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                     <CheckCircle size={15} color="#D42020" style={{ marginTop: '2px', flexShrink: 0 }} />
                     <span style={{ color: '#94a3b8', fontSize: '0.875rem', lineHeight: 1.5 }}>{item}</span>
@@ -206,7 +236,7 @@ export default function ServicePage() {
                 Professional Grade
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {service.tools.map((tool) => (
+                {data.tools.map((tool) => (
                   <div key={tool} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                     <Wrench size={13} color="#475569" style={{ flexShrink: 0 }} />
                     <span style={{ color: '#64748b', fontSize: '0.875rem' }}>{tool}</span>
@@ -235,15 +265,15 @@ export default function ServicePage() {
             }}
           >
             <div style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: '#cbd5e1', lineHeight: 1.8, fontStyle: 'italic', marginBottom: '2rem' }}>
-              "{service.testimonial.text}"
+              "{data.testimonial.text}"
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
               <div style={{ width: '40px', height: '40px', background: '#D42020', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '0.9rem', color: 'white', flexShrink: 0 }}>
-                {service.testimonial.name.charAt(0)}
+                {data.testimonial.name.charAt(0)}
               </div>
               <div>
-                <div style={{ color: 'white', fontWeight: 800, fontSize: '0.875rem' }}>{service.testimonial.name}</div>
-                <div style={{ color: '#475569', fontSize: '0.75rem', letterSpacing: '0.05em' }}>{service.testimonial.location}</div>
+                <div style={{ color: 'white', fontWeight: 800, fontSize: '0.875rem' }}>{data.testimonial.name}</div>
+                <div style={{ color: '#475569', fontSize: '0.75rem', letterSpacing: '0.05em' }}>{data.testimonial.location}</div>
               </div>
             </div>
           </motion.div>
