@@ -23,10 +23,12 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ marginBottom: '1rem' }}>
-              <div style={{ fontSize: '1.4rem', fontWeight: 900, letterSpacing: '-0.02em', color: 'white', textTransform: 'uppercase', lineHeight: 1 }}>
-                Total
+              <div style={{ display: 'flex', alignItems: 'center', lineHeight: 1 }}>
+                <span style={{ fontSize: '1.75rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#D42020', textTransform: 'uppercase', lineHeight: 1 }}>T</span>
+                <span style={{ fontSize: '1.45rem', lineHeight: 1, display: 'inline-block', margin: '0 -1px' }}>😎</span>
+                <span style={{ fontSize: '1.75rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#D42020', textTransform: 'uppercase', lineHeight: 1 }}>TAL</span>
               </div>
-              <div style={{ fontSize: '1.4rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#D42020', textTransform: 'uppercase', lineHeight: 1 }}>
+              <div style={{ fontSize: '0.72rem', fontWeight: 900, letterSpacing: '0.28em', color: 'white', textTransform: 'uppercase', lineHeight: 1, marginTop: '2px' }}>
                 Construction
               </div>
             </div>

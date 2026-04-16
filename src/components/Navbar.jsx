@@ -36,13 +36,15 @@ export default function Navbar() {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
           {/* Logo */}
-          <a href="#" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
-            <span style={{ fontSize: '1.25rem', fontWeight: 900, letterSpacing: '-0.02em', color: 'white', textTransform: 'uppercase' }}>
-              Total
-            </span>
-            <span style={{ fontSize: '1.25rem', fontWeight: 900, letterSpacing: '-0.02em', color: '#D42020', textTransform: 'uppercase' }}>
+          <a href="#" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', lineHeight: 1, gap: '1px' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span style={{ fontSize: '1.5rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#D42020', fontFamily: 'inherit', textTransform: 'uppercase', lineHeight: 1 }}>T</span>
+              <span style={{ fontSize: '1.25rem', lineHeight: 1, display: 'inline-block', margin: '0 -1px' }}>😎</span>
+              <span style={{ fontSize: '1.5rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#D42020', fontFamily: 'inherit', textTransform: 'uppercase', lineHeight: 1 }}>TAL</span>
+            </div>
+            <div style={{ fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.28em', color: 'white', textTransform: 'uppercase', lineHeight: 1 }}>
               Construction
-            </span>
+            </div>
           </a>
 
           {/* Desktop Nav */}
