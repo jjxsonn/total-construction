@@ -194,9 +194,6 @@ export default function ServicesBento() {
         @media (max-width: 900px) {
           .services-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 560px) {
-          .services-grid { grid-template-columns: 1fr; }
-        }
       `}</style>
     </section>
   );

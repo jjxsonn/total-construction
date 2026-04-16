@@ -50,14 +50,12 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div
+      <div className="hero-content"
         style={{
           position: 'relative',
           zIndex: 10,
           maxWidth: '1280px',
           margin: '0 auto',
-          padding: '0 2rem',
-          paddingTop: '5rem',
           width: '100%',
         }}
       >
