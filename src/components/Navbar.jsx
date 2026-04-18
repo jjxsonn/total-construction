@@ -36,7 +36,6 @@ export default function Navbar() {
       scrollToSection(sectionId);
     } else {
       navigate('/');
-      // Wait for home page to mount, then scroll
       setTimeout(() => scrollToSection(sectionId), 120);
     }
   }
@@ -55,8 +54,8 @@ export default function Navbar() {
         borderBottom: scrolled ? '1px solid rgba(212,32,32,0.15)' : '1px solid transparent',
       }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--px)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
           {/* Logo */}
           <a
             href="#"
@@ -108,11 +107,11 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', display: 'none' }}
+            style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', display: 'none', padding: '0.5rem' }}
             className="show-mobile"
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -130,7 +129,7 @@ export default function Navbar() {
               overflow: 'hidden',
             }}
           >
-            <div style={{ padding: '1.5rem 2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <div style={{ padding: '1.5rem var(--px)', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {navLinks.map((link) => (
                 <a
                   key={link.href}

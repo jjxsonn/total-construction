@@ -10,7 +10,7 @@ const footerLinks = [
 export default function Footer() {
   return (
     <footer style={{ background: '#060c17', borderTop: '1px solid rgba(212,32,32,0.15)', padding: '4rem 0 2rem' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--px)' }}>
         <div
           style={{
             display: 'grid',

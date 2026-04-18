@@ -21,7 +21,7 @@ export default function CTABand() {
         }}
       />
 
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--px)', position: 'relative', zIndex: 1 }}>
         <div
           style={{
             display: 'flex',

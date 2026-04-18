@@ -18,33 +18,34 @@ function ServiceCard({ cat }) {
         background: hovered ? '#0f1729' : '#060c17',
         border: '1px solid rgba(255,255,255,0.06)',
         borderLeft: `3px solid ${hovered ? '#D42020' : 'rgba(212,32,32,0.3)'}`,
-        padding: '1.5rem',
+        padding: '1.25rem',
         cursor: 'default',
         transition: 'background 0.2s ease, border-left-color 0.2s ease',
         display: 'flex',
         flexDirection: 'column',
-        gap: '0.75rem',
+        gap: '0.6rem',
+        minWidth: 0,
       }}
     >
       {/* Header */}
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
-        <div style={{ flex: 1 }}>
-          <div style={{ marginBottom: '0.4rem' }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.75rem', minWidth: 0 }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ marginBottom: '0.35rem' }}>
             <span style={{
               fontSize: '0.6rem',
               fontWeight: 700,
-              letterSpacing: '0.12em',
+              letterSpacing: '0.1em',
               textTransform: 'uppercase',
               color: '#D42020',
               background: 'rgba(212,32,32,0.1)',
               border: '1px solid rgba(212,32,32,0.25)',
-              padding: '0.15rem 0.45rem',
-              whiteSpace: 'nowrap',
+              padding: '0.15rem 0.4rem',
+              display: 'inline-block',
             }}>
               {cat.tag}
             </span>
           </div>
-          <h3 style={{ color: 'white', fontWeight: 800, fontSize: '0.95rem', margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+          <h3 style={{ color: 'white', fontWeight: 800, fontSize: '0.88rem', margin: 0, letterSpacing: '0.02em', textTransform: 'uppercase', wordBreak: 'break-word' }}>
             {cat.title}
           </h3>
         </div>
@@ -58,7 +59,7 @@ function ServiceCard({ cat }) {
       </div>
 
       {/* Short desc */}
-      <p style={{ color: '#64748b', fontSize: '0.82rem', lineHeight: 1.6, margin: 0 }}>
+      <p style={{ color: '#64748b', fontSize: '0.8rem', lineHeight: 1.6, margin: 0 }}>
         {cat.short}
       </p>
 
@@ -127,8 +128,8 @@ function ServiceCard({ cat }) {
 
 export default function ServicesBento() {
   return (
-    <section id="services" style={{ background: '#0a0f1a', padding: '5rem 0 6rem' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+    <section id="services" style={{ background: '#0a0f1a', padding: '4rem 0 5rem' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--px)' }}>
 
         {/* Section header */}
         <motion.div
@@ -136,7 +137,7 @@ export default function ServicesBento() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          style={{ marginBottom: '3.5rem' }}
+          style={{ marginBottom: '3rem' }}
         >
           <div className="amber-rule" style={{ marginBottom: '0.75rem' }} />
           <p className="label-text">What We Do</p>
@@ -149,10 +150,10 @@ export default function ServicesBento() {
         </motion.div>
 
         {/* ── RESTORATION ── */}
-        <div style={{ marginBottom: '3rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
+        <div style={{ marginBottom: '2.5rem' }}>
+          <div className="category-divider">
             <div style={{ width: '3px', height: '1.4rem', background: '#D42020', flexShrink: 0 }} />
-            <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D42020', whiteSpace: 'nowrap' }}>
+            <span className="category-label">
               Restoration &amp; Mitigation
             </span>
             <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
@@ -167,9 +168,9 @@ export default function ServicesBento() {
 
         {/* ── TRADES ── */}
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
+          <div className="category-divider">
             <div style={{ width: '3px', height: '1.4rem', background: '#D42020', flexShrink: 0 }} />
-            <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D42020', whiteSpace: 'nowrap' }}>
+            <span className="category-label">
               Construction Trades
             </span>
             <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
@@ -185,14 +186,27 @@ export default function ServicesBento() {
       </div>
 
       <style>{`
-        .services-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1px;
-          background: rgba(255,255,255,0.04);
+        .category-divider {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 1rem;
+          min-width: 0;
         }
-        @media (max-width: 900px) {
-          .services-grid { grid-template-columns: repeat(2, 1fr); }
+        .category-label {
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          color: #D42020;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        @media (max-width: 480px) {
+          .category-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+          }
         }
       `}</style>
     </section>

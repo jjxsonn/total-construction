@@ -38,7 +38,7 @@ function StarRow({ count }) {
 export default function Testimonials() {
   return (
     <section id="testimonials" style={{ background: '#0a0f1a', padding: '4rem 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--px)' }}>
 
         {/* Header row */}
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
@@ -125,16 +125,6 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <style>{`
-        .reviews-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1.25rem;
-        }
-        @media (max-width: 768px) {
-          .reviews-grid { grid-template-columns: 1fr; }
-        }
-      `}</style>
     </section>
   );
 }

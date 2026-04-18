@@ -25,7 +25,7 @@ const steps = [
 export default function Process() {
   return (
     <section id="process" style={{ background: '#0f172a', padding: '7rem 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--px)' }}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,14 +46,7 @@ export default function Process() {
         </motion.div>
 
         {/* Steps */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '0',
-            position: 'relative',
-          }}
-        >
+        <div className="process-steps">
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (

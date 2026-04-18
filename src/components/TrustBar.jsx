@@ -26,7 +26,7 @@ export default function TrustBar() {
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
-          padding: '0 2rem',
+          padding: '0 var(--px)',
           display: 'grid',
           gap: '0',
         }}
@@ -40,16 +40,16 @@ export default function TrustBar() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.4 }}
+              className="trust-cell"
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.75rem',
                 padding: '1rem 1.25rem',
-                borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
               }}
             >
               <Icon size={18} color="#D42020" strokeWidth={1.5} />
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <div style={{ fontSize: '1.25rem', fontWeight: 900, letterSpacing: '-0.03em', color: 'white', lineHeight: 1 }}>
                   {stat.value}
                 </div>
@@ -63,9 +63,14 @@ export default function TrustBar() {
       </div>
 
       <style>{`
-        .trust-grid { grid-template-columns: repeat(4, 1fr); }
+        .trust-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .trust-cell { border-right: 1px solid rgba(255,255,255,0.05); }
+        .trust-cell:last-child { border-right: none; }
         @media (max-width: 640px) {
-          .trust-grid { grid-template-columns: repeat(2, 1fr); }
+          .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+          .trust-cell:nth-child(2n) { border-right: none; }
+          .trust-cell:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.05); }
+          .trust-cell { padding: 0.85rem 1rem; }
         }
       `}</style>
     </section>

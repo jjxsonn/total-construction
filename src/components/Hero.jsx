@@ -15,11 +15,8 @@ export default function Hero() {
     <section className="hero-section"
       style={{
         position: 'relative',
-        minHeight: '80vh',
         display: 'flex',
-        alignItems: 'flex-end',
         overflow: 'hidden',
-        paddingBottom: '5rem',
       }}
     >
       {/* Background image */}
@@ -70,14 +67,14 @@ export default function Hero() {
             display: 'flex',
             alignItems: 'center',
             flexWrap: 'wrap',
-            marginBottom: '0.9rem',
-            maxWidth: '100%',
+            gap: '0',
+            marginBottom: '1rem',
           }}
         >
-          <span style={{ background: '#D42020', padding: '0.3rem 0.65rem', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'white' }}>
+          <span className="hero-badge-primary">
             Commercial • Residential
           </span>
-          <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderLeft: 'none', padding: '0.3rem 0.65rem', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'white' }}>
+          <span className="hero-badge-secondary">
             24/7 Emergency Assurance
           </span>
         </motion.div>
@@ -137,23 +134,49 @@ export default function Hero() {
 
       <style>{`
         .hero-section {
+          min-height: 80vh;
           align-items: flex-end;
+          padding-bottom: 5rem;
         }
         .hero-content {
-          padding: 5rem 2rem 0;
+          padding: 5rem var(--px) 0;
         }
-        @media (max-width: 767px) {
+        .hero-badge-primary {
+          background: #D42020;
+          padding: 0.3rem 0.65rem;
+          font-size: 0.65rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: white;
+        }
+        .hero-badge-secondary {
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-left: none;
+          padding: 0.3rem 0.65rem;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: white;
+        }
+        @media (max-width: 640px) {
           .hero-section {
             align-items: flex-start;
             min-height: 100svh;
             padding-bottom: 3rem;
           }
           .hero-content {
-            padding: 5.5rem 1.25rem 0;
+            padding-top: 5rem;
           }
-          .hero-badge span:last-child {
+          .hero-badge {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+          }
+          .hero-badge-secondary {
             border-left: 1px solid rgba(255,255,255,0.1);
-            margin-top: -1px;
           }
         }
       `}</style>

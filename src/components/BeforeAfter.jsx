@@ -71,7 +71,7 @@ export default function BeforeAfter() {
 
   return (
     <section id="before-after" style={{ background: '#0f172a', padding: '3.5rem 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--px)' }}>
         {/* Header row — inline with tabs */}
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
           <motion.div
