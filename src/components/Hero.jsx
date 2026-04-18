@@ -103,7 +103,8 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center', marginTop: '1.25rem' }}
+          className="hero-ctas"
+          style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}
         >
           <a href="tel:3046856419" className="btn-primary" style={{ fontSize: '0.8rem', padding: '0.75rem 1.5rem' }}>
             <Phone size={14} />
@@ -141,6 +142,9 @@ export default function Hero() {
         .hero-content {
           padding: 5rem var(--px) 0;
         }
+        .hero-ctas {
+          margin-top: 1.25rem;
+        }
         .hero-badge-primary {
           background: #D42020;
           padding: 0.3rem 0.65rem;
@@ -163,20 +167,23 @@ export default function Hero() {
         }
         @media (max-width: 640px) {
           .hero-section {
-            align-items: flex-start;
+            align-items: stretch;
             min-height: 100svh;
-            padding-bottom: 3rem;
+            padding-bottom: 0;
           }
           .hero-content {
-            padding-top: 5rem;
-          }
-          .hero-badge {
+            display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 4px;
+            padding-top: 5.5rem;
+            padding-bottom: 2.5rem;
           }
-          .hero-badge-secondary {
-            border-left: 1px solid rgba(255,255,255,0.1);
+          .hero-headline {
+            font-size: clamp(2.8rem, 11vw, 4rem);
+            margin-top: 0.75rem;
+          }
+          .hero-ctas {
+            margin-top: auto;
+            padding-top: 1.5rem;
           }
         }
       `}</style>
