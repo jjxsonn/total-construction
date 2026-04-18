@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Clock, Star, Hammer } from 'lucide-react';
 
 const stats = [
-  { icon: Hammer, value: '15+', label: 'Years in WV' },
+  { icon: Hammer, value: '15+', label: 'Years in WV, PA & MD' },
   { icon: Star, value: '500+', label: 'Jobs Completed' },
   { icon: Clock, value: '< 2hr', label: 'Emergency Response' },
   { icon: ShieldCheck, value: 'A+', label: 'Licensed & Insured' },
@@ -67,10 +67,8 @@ export default function TrustBar() {
         .trust-cell { border-right: 1px solid rgba(255,255,255,0.05); }
         .trust-cell:last-child { border-right: none; }
         @media (max-width: 640px) {
-          .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-          .trust-cell:nth-child(2n) { border-right: none; }
-          .trust-cell:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.05); }
-          .trust-cell { padding: 0.85rem 1rem; }
+          .trust-cell { padding: 0.75rem 0.6rem; }
+          .trust-cell .label-text { font-size: 0.55rem; letter-spacing: 0.08em; }
         }
       `}</style>
     </section>
